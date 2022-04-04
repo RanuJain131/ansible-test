@@ -1,3 +1,12 @@
-- name: Test reachability to morpheus VM
-  ansible.netcommon.net_ping:
-    dest: 192.168.9.102
+
+---
+
+- hosts: all
+  gather_facts: False
+  connection: local
+
+  tasks:
+
+    - name: ping
+      shell: ping -c 1 -w 2 8.8.8.8
+      ignore_errors: true
